@@ -1,0 +1,19 @@
+{
+  "extends": "../../.svelte-kit/tsconfig.json",
+  "include": [
+    "./**/*",
+    "./**/*.svelte",
+    "../../.svelte-kit/ambient.d.ts",
+    "../../.svelte-kit/non-ambient.d.ts",
+    "../../.svelte-kit/types/**/*",
+    "../../components.json"
+  ],
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2022",
+    "lib": ["ESNext", "DOM"],
+    "strict": true,
+    "skipLibCheck": true
+  }
+}

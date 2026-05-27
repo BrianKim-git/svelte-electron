@@ -10,17 +10,20 @@ export default {
       assets: 'out/renderer',
       fallback: 'index.html',
       precompress: false,
-      strict: false
+      strict: false,
     }),
     files: {
       routes: 'src/renderer/routes',
       appTemplate: 'src/renderer/app.html',
       lib: 'src/renderer/lib',
-      assets: 'src/renderer/static'
+      assets: 'src/renderer/static',
     },
     alias: {
       $lib: 'src/renderer/lib',
-      $components: 'src/renderer/lib/components'
-    }
-  }
+      $components: 'src/renderer/lib/components',
+    },
+    paths: {
+      relative: true,
+    },
+  },
 }

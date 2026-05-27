@@ -1,5 +1,7 @@
 <script lang="ts">
   import { goto } from '$app/navigation'
+  import { Button } from "$lib/components/ui/button/index.js";
+  import * as Card from "$lib/components/ui/card/index.js";
 
   let count = $state(0)
   let msg = $state('')
@@ -18,20 +20,24 @@
   }
 </script>
 
-<h1>Svelte + Electron</h1>
-<button onclick={() => goto('/test')}>→ Test 페이지로 이동</button>
 
-<section>
-  <div>{msg}!!!</div>
-  <button onclick={() => { count++; msg = '' }}>count: {count}</button>
-  <button onclick={ping}>ping main process</button>
+<Card.Root class="-my-4 w-full max-w-sm">
+  <Card.Header>
+    <Card.Title>Svelte + Electron</Card.Title>
+  </Card.Header>
+  <Card.Content>
+    <section>
+  <div>{msg}!!!12345</div>
+  
+  <Button variant="outline" onclick={() => { count++; msg = '' }}>count: {count}</Button>
+  <Button variant="outline" onclick={ping}>ping main process</Button>
 </section>
 
 <section>
   <h2>Notes</h2>
-  <button onclick={loadNotes} disabled={loading}>
+  <Button variant="outline" onclick={loadNotes} disabled={loading}>
     {loading ? 'loading...' : 'load notes'}
-  </button>
+  </Button>
 
   {#if notes.length === 0 && !loading}
     <p>no notes found. try <code>npm run db:migrate</code> first.</p>
@@ -47,3 +53,10 @@
     </ul>
   {/if}
 </section>
+  </Card.Content>
+  <Card.Footer class="flex-col gap-2">
+    <Button variant="link" onclick={() => goto('/test')}>→ Test 페이지로 이동</Button>
+  </Card.Footer>
+</Card.Root>
+
+

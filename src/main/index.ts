@@ -4,13 +4,14 @@ import { setupSampleHandlers } from './sample'
 import { prisma } from './db.js'
 
 function createWindow(): void {
+  console.log('App is running in', app.isPackaged ? 'production' : 'development', 'mode.')
   const win = new BrowserWindow({
     width: 1200,
     height: 800,
     webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
+      preload: join(__dirname, '../preload/index.cjs'),
       contextIsolation: true,
-      nodeIntegration: false
+      nodeIntegration: false,
     }
   })
 
@@ -21,8 +22,9 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
-  if (!app.isPackaged && process.env.ELECTRON_RENDERER_URL) {
-    win.loadURL(process.env.ELECTRON_RENDERER_URL)
+  if (!app.isPackaged) {
+    win.loadURL(process.env.ELECTRON_RENDERER_URL || 'http://localhost:4173')
+    win.webContents.openDevTools()
   } else {
     win.loadFile(join(__dirname, '../renderer/index.html'))
   }
@@ -39,5 +41,5 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', async () => {
   await prisma.$disconnect()
-  if (process.platform !== 'darwin') app.quit()
+  app.quit()
 })
