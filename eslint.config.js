@@ -13,8 +13,8 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
 
-  // TypeScript 파일에서 no-undef 비활성화
-  // (TypeScript 자체가 undefined 참조를 검사하므로 중복 + 전역 타입 오감지 발생)
+  // TypeScriptファイルでno-undefを無効化
+  // (TypeScript自体がundefined参照をチェックするため、重複チェック＋グローバル型の誤検知が発生する)
   {
     files: ['**/*.ts', '**/*.svelte'],
     rules: {
@@ -52,7 +52,7 @@ export default tseslint.config(
       globals: globals.browser,
     },
     rules: {
-      // SvelteKit 클라이언트 컴포넌트에서 goto() 등은 resolve() 불필요
+      // SvelteKitのクライアントコンポーネントでgoto()などはresolve()不要
       'svelte/no-navigation-without-resolve': 'off',
     },
   },
