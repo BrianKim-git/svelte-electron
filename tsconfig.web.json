@@ -1,0 +1,17 @@
+{
+  "include": ["src/renderer/**/*"],
+  "compilerOptions": {
+    "composite": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2022",
+    "lib": ["ESNext", "DOM"],
+    "strict": true,
+    "skipLibCheck": true,
+    "paths": {
+      "$lib/*": ["src/renderer/lib/*"]
+    }
+  }
+}
