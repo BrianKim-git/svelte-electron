@@ -12,7 +12,7 @@ function createWindow(): void {
       preload: join(__dirname, '../preload/index.cjs'),
       contextIsolation: true,
       nodeIntegration: false,
-    }
+    },
   })
 
   win.on('ready-to-show', () => win.show())
@@ -23,7 +23,7 @@ function createWindow(): void {
   })
 
   if (!app.isPackaged) {
-    win.loadURL(process.env.ELECTRON_RENDERER_URL || 'http://localhost:4173')
+    win.loadURL(process.env.ELECTRON_RENDERER_URL)
     win.webContents.openDevTools()
   } else {
     win.loadFile(join(__dirname, '../renderer/index.html'))
