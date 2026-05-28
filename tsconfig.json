@@ -1,26 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "strict": true,
-    "skipLibCheck": true,
-    "types": ["node", "electron"],
-    "resolveJsonModule": true,
-    "paths": {
-      "$lib": ["./src/renderer/lib"],
-      "$lib/*": ["./src/renderer/lib/*"],
-      "$components": ["./src/renderer/lib/components"],
-      "$components/*": ["./src/renderer/lib/components/*"]
-    }
-  },
-  "include": [
-    "src/main/**/*",
-    "src/preload/**/*"
-  ],
-  "exclude": [
-    "src/renderer/**/*",
-    "out",
-    "node_modules"
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./src/renderer" }
   ]
 }
