@@ -2,16 +2,18 @@
   "include": ["src/renderer/**/*"],
   "compilerOptions": {
     "composite": true,
-    "ignoreDeprecations": "6.0",
-    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "target": "ES2022",
     "lib": ["ESNext", "DOM"],
     "strict": true,
     "skipLibCheck": true,
+    "baseUrl": ".",
     "paths": {
-      "$lib/*": ["src/renderer/lib/*"]
+      "$lib": ["src/renderer/lib"],
+      "$lib/*": ["src/renderer/lib/*"],
+      "$components": ["src/renderer/lib/components"],
+      "$components/*": ["src/renderer/lib/components/*"]
     }
   }
 }

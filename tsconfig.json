@@ -16,10 +16,7 @@
   },
   "include": [
     "src/main/**/*",
-    "src/preload/**/*",
-    "vite.*.config.ts",
-    "electron.vite.config.ts",
-    "svelte.config.js"
+    "src/preload/**/*"
   ],
   "exclude": [
     "src/renderer/**/*",

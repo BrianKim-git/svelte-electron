@@ -5,11 +5,9 @@
   "type": "module",
   "main": "out/main/index.js",
   "scripts": {
-    "start:renderer": "vite dev --config vite.renderer.config.ts",
-    "start:electron": "ELECTRON_RENDERER_URL=http://localhost:5173 electron-vite dev --watch",
-    "build": "vite build --config vite.renderer.config.ts && electron-vite build",
-    "preview:renderer": "vite build --config vite.renderer.config.ts && vite preview --config vite.renderer.config.ts",
-    "preview:electron": "ELECTRON_RENDERER_URL=http://localhost:4173 electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
@@ -17,7 +15,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "npm run typecheck:node && npm run typecheck:renderer",
-    "typecheck:node": "tsc --noEmit",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json",
     "typecheck:renderer": "svelte-check --tsconfig src/renderer/tsconfig.json"
   },
   "dependencies": {
@@ -43,6 +41,7 @@
     "shadcn-svelte": "^1.2.7",
     "svelte-check": "^4.4.8",
     "svelte-eslint-parser": "^1.6.1",
+    "svelte-spa-router": "^5.1.0",
     "tailwind-merge": "^3.6.0",
     "tailwind-variants": "^3.2.2",
     "tailwindcss": "^4.3.0",
